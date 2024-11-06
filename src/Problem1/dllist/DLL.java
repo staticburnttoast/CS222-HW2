@@ -1,13 +1,12 @@
 package dllist;
 
+// Programmed by Anthony Ramirez-Mata
 public class DLL<T> {
     /*
     You can and should base your code off LL<T> and Node<T> which we did in class and the lab. The package these files live in should be called “dllist”
 
     The DLL<T> class should have 3 fields: size (int), head (DLNode<T>) and tail (DLNode<T>)
      */
-
-
 
     public DLL() {
         // TODO: Implement

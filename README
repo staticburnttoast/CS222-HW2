@@ -1,0 +1,56 @@
+Create a new Java project that conforms to the following specifications:
+
+
+
+Problem 1
+
+Create a class called DLL<T> that is a doubly linked list. It should be based on doubly linked nodes, the class of which is called DLNode<T>. DLNode<T> should have 3 fields: data, next, and prev. It should have getters and setters for each.
+
+You can and should base your code off LL<T> and Node<T> which we did in class and the lab. The package these files live in should be called “dllist”
+
+The DLL<T> class should have 3 fields: size (int), head (DLNode<T>) and tail (DLNode<T>)
+
+The class should have the following methods:
+
+Constructor: DLL()
+Constructor: DLL(DLNode<T> node)
+Void copyOver(DLNode<T> node)
+DLNode<T> getNode(int idx)
+boolean isEmpty()
+void makeEmpty()
+int size()
+String toString()
+int find(T x)
+void insert(int idx, T data)
+void delete(int idx)
+void remove(T data)
+void append(T data)
+Node<T> getHead()   (is this DLNode or just Node)?
+int hashCode()
+boolean equals(Object obj) (should be element-wise operation to check if elements are equal)
+
+
+Problem 2
+
+Create a new class called Deque. It should be a double ended queue, which uses DLL<T> (Problem 1) as its underlying data structure. It should live in a package called "deque". It should have the following methods:
+
+addFront()
+addBack()
+removeFront()
+removeBack()
+isEmpty()
+makeEmpty()
+equals()
+Create a simple Driver class to add/remove things from the deque. Name of the file doesn't matter, but it should have "Driver" in its name.
+
+Driver specifications:
+
+Add some odd numbers to the front and even numbers to the back.
+Remove 1/3 of the objects from the back, and remove the rest from the front.
+You may use code developed in class or the lab to start you off.
+
+
+
+This is a group assignment.
+
+Zip your final project folder and turn it in to Canvas.

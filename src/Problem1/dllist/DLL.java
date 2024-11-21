@@ -81,15 +81,64 @@ public class DLL<T> {
     }
 
     public void insert(int idx, T data) {
-        // TODO: Implement
+        if (idx < 0 || idx > size) throw new IndexOutOfBoundsException("Invalid index");
+        DLNode<T> newNode = new DLNode<>(data);
+
+        if (idx == 0) { // Insert at head
+            newNode.next = head;
+            if (head != null) head.prev = newNode;
+            head = newNode;
+            if (tail == null) tail = newNode; // First element
+        } else if (idx == size) { // Insert at tail
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
+        } else { // Insert in the middle
+            DLNode<T> current = getNode(idx);
+            newNode.next = current;
+            newNode.prev = current.prev;
+            if (current.prev != null) current.prev.next = newNode;
+            current.prev = newNode;
+        }
+        size++;
     }
 
     public void delete(int idx) {
-        // TODO: Implement
+        if (idx < 0 || idx >= size) throw new IndexOutOfBoundsException("Invalid index");
+        if (idx == 0) { // Remove head
+            head = head.next;
+            if (head != null) head.prev = null;
+            if (head == null) tail = null; // List is now empty
+        } else if (idx == size - 1) { // Remove tail
+            tail = tail.prev;
+            if (tail != null) tail.next = null;
+        } else { // Remove from the middle
+            DLNode<T> current = getNode(idx);
+            current.prev.next = current.next;
+            current.next.prev = current.prev;
+        }
+        size--;
     }
 
     public void remove(T data) {
-        // TODO: Implement
+        DLNode<T> current = head;
+        while (current != null) {
+            if ((current.data == null && data == null) || (current.data != null && current.data.equals(data))) {
+                if (current == head) {
+                    head = head.next;
+                    if (head != null) head.prev = null;
+                } else if (current == tail) {
+                    tail = tail.prev;
+                    if (tail != null) tail.next = null;
+                } else {
+                    current.prev.next = current.next;
+                    current.next.prev = current.prev;
+                }
+                size--;
+                return;
+            }
+            current = current.next;
+        }
     }
 
     public void append(T data) {
@@ -101,10 +150,34 @@ public class DLL<T> {
     }
 
     public int hashCode() {
-        return 0;   // TODO: Implement
+        int hash = 1;
+        DLNode<T> current = head;   // Make temp
+        while (current != null) {
+            hash = 31 * hash + (current.data == null ? 0 : current.data.hashCode());    // Create a hash code.
+            current = current.next; // Iterate through the next data.
+        }
+        return hash;
     }
 
     public boolean equals(Object obj) {
-        return false;   // TODO: Implement
+        if (this == obj) return true;   // If this list is equal to whatever is input in the parameter, return true.
+        if (obj == null || getClass() != obj.getClass()) return false;  // If list in param is null or does not equal this, return false.
+        DLL<?> other = (DLL<?>) obj;
+
+        if (size != other.size) return false;   // If compared lists are not the same size, return false.
+
+        // make temp vars for comparing heads
+        DLNode<?> current1 = this.head;
+        DLNode<?> current2 = other.head;
+
+        while (current1 != null) {
+            // Return false if data is not equal.
+            if (!current1.data.equals(current2.data)) return false;
+
+            // Iterate through the data.
+            current1 = current1.next;
+            current2 = current2.next;
+        }
+        return true;
     }
 }

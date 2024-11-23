@@ -1,21 +1,32 @@
-package dllist;
-
 public class Driverfile {
+    public static void main(String [] args) {
+        Deque<Integer> integerDeque = new Deque<>(); 
 
-    // Where did these two methods come from?
-    // There should only be a main method.
+    public static void addEvenNumbers (Deque<Integer> deque, int[] number){ 
+        list.insert(new int [] {1,3,5,7,9}); 
+    }
 
-    // In the main method, define a new Deque that takes an Integer type.
-    // Use the methods you created in the Deque file to satisfy the requirements in the README file.
+    public static void addOddNumbers (Deque<Integer> deque, int[] number){ 
+        list.append(new int [] {2,4,6,8});
 
-    // I don't think outputs are necessary, but you could just print them to the console to make sure it's functional.
+    public static void removeThird (Deque<Integer> deque){ 
+        list.removeFront(list.size/3); 
+        list.appendFront(list.size/3); 
+    }
+    } }
+   
+    /* public static void main(String [] args) {
+        Deque<Integer> deque = new Deque<>(); 
+
+        addNumbers(deque, new int[]{1,2,3,4,5,6,7,8,9,10});
+    }
 
     public static void addNumbers(Deque<Integer> deque, int[] number) {
         for (int number : numbers) {
             if (number% 2 == 0) {
                 deque.addBack(number); 
             } else {
-                deque.addFront(numbers); 
+                deque.addFront(number); 
             }
         }
     }
@@ -32,10 +43,10 @@ public static void removeElements(Deque<Integer> deque) {
     for (int i = 0; i < removeBackCount; i++){ 
         deque.removeBack(); 
     }
-    for (int 9 = 0; i < removeFrontCount; i++){
+    for (int i = 0; i < removeFrontCount; i++){
         deque.removeFront();
     }
 
     }
 }
-}
+} */ 

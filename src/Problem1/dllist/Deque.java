@@ -7,6 +7,7 @@ import DLL;
 public class Deque<T> {
     private DLL<T> list; 
 
+// Zero Parameter 
     public Deque(){
         this.list = newDLL<>(); 
     }
@@ -17,10 +18,8 @@ public class Deque<T> {
 
     public void addBack(T data) { // adds data to the back of collection
         list.append(data); 
-        } 
+    } 
     
-
-    }
 
     public T removeFront() { // removes data from front of collection
        if (list.isEmpty()){ 
@@ -29,7 +28,7 @@ public class Deque<T> {
        DLL<T>.Node headNode = getHead().data;
        list.delete(headNode); 
         return data;
-        }
+    }
 
 
 
@@ -60,4 +59,4 @@ public class Deque<T> {
 
         return this.list.equals(other.list); 
     }
-
+}
